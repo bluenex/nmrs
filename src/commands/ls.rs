@@ -27,12 +27,12 @@ pub async fn execute(target_path: PathBuf) -> Result<()> {
 
     let mut total_size = 0u64;
     for info in &node_modules_infos {
-        println!("{}\t{}", format_bytes(info.size), info.path.display());
+        println!("{:>4}\t{}", format_bytes(info.size), info.path.display());
         total_size += info.size;
     }
 
     println!();
-    println!("{}\tTOTAL", format_bytes(total_size));
+    println!("{:>4}\tTOTAL", format_bytes(total_size));
 
     Ok(())
 }

@@ -32,7 +32,7 @@ pub async fn execute(target_path: PathBuf) -> Result<()> {
 
     let choices: Vec<String> = node_modules_infos
         .iter()
-        .map(|info| format!("{:>6} {}", format_bytes(info.size), info.path.display()))
+        .map(|info| format!("{:>4} {}", format_bytes(info.size), info.path.display()))
         .collect();
 
     let selected_items = MultiSelect::new("Select directories to remove:", choices)
@@ -44,21 +44,20 @@ pub async fn execute(target_path: PathBuf) -> Result<()> {
         return Ok(());
     }
 
-    let selected_dirs: Vec<&NodeModulesInfo> = selected_items
+        let selected_dirs: Vec<&NodeModulesInfo> = selected_items
         .iter()
         .filter_map(|selected| {
             node_modules_infos.iter().find(|info| {
-                let formatted = format!("{:>6} {}", format_bytes(info.size), info.path.display());
+                let formatted = format!("{:>4} {}", format_bytes(info.size), info.path.display());
                 formatted == *selected
             })
         })
         .collect();
-
     let total_selected_size: u64 = selected_dirs.iter().map(|dir| dir.size).sum();
 
     println!("\nSelected {} directories for removal:", selected_dirs.len());
     for dir in &selected_dirs {
-        println!("  • {:>6} {}", format_bytes(dir.size), dir.path.display());
+        println!("  • {:>4} {}", format_bytes(dir.size), dir.path.display());
     }
     println!("\nTotal space to be freed: {}", format_bytes(total_selected_size));
 
