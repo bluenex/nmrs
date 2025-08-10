@@ -6,7 +6,7 @@ A fast and interactive CLI tool for managing node_modules directories - Rust por
 
 - **Fast scanning**: Uses parallel processing to quickly find and analyze node_modules directories
 - **Interactive removal**: Select multiple directories for removal with checkboxes
-- **Smart caching**: 10-minute cache to avoid re-scanning recently analyzed directories  
+- **Smart caching**: 10-minute cache to avoid re-scanning recently analyzed directories
 - **Progress indicators**: Real-time feedback during scanning and size calculation
 - **Cross-platform**: Works on macOS, Linux, and Windows
 - **Size calculation**: Matches `du -sh` output exactly
@@ -20,16 +20,19 @@ cargo install --path .
 ## Usage
 
 ### List node_modules directories
+
 ```bash
 nmrs ls <path>
 ```
 
 ### Remove node_modules directories interactively
+
 ```bash
 nmrs rm <path>
 ```
 
 ### Clear cached results
+
 ```bash
 nmrs clear-cache
 ```
@@ -37,7 +40,7 @@ nmrs clear-cache
 ## Commands
 
 - `nmrs ls <path>` - Scans directory for node_modules, shows sizes, caches results
-- `nmrs rm <path>` - Interactive removal with checkboxes, uses cached results when available  
+- `nmrs rm <path>` - Interactive removal with checkboxes, uses cached results when available
 - `nmrs clear-cache` - Clears cached scan results
 
 ## Performance
@@ -48,12 +51,12 @@ nmrs clear-cache
 
 ## Architecture
 
-```
+```txt
 src/
 ├── main.rs           # CLI entry point
 ├── commands/         # Command implementations
 │   ├── ls.rs         # List command
-│   ├── rm.rs         # Remove command  
+│   ├── rm.rs         # Remove command
 │   └── cache.rs      # Clear cache command
 ├── scanner/          # Directory scanning
 │   └── finder.rs     # Core scanning logic
@@ -67,7 +70,7 @@ src/
 
 - **clap**: CLI argument parsing
 - **walkdir**: Directory traversal
-- **rayon**: Parallel processing  
+- **rayon**: Parallel processing
 - **serde**: Serialization for caching
 - **dirs**: Cross-platform cache directory
 - **indicatif**: Progress indicators
