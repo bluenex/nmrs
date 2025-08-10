@@ -1,6 +1,11 @@
 # nmrs
 
+![Vibe Coding](https://img.shields.io/badge/vibe-coding-blue?style=for-the-badge&logo=sparkles&logoColor=white)
+![Educational](https://img.shields.io/badge/educational-purpose-green?style=for-the-badge&logo=graduation-cap&logoColor=white)
+
 A fast and interactive CLI tool for managing node_modules directories - Rust port of the Node.js nm tool.
+
+> **Note**: This repository is for educational purposes - a learning project to learn Rust with the help of vibe coding. Based on the original [nm tool](https://github.com/bluenex/nm).
 
 ## Features
 
